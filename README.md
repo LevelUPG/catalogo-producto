@@ -29,8 +29,6 @@ src/main/java/com/levelup/catalogo_producto/
 ├── service/ - Lógica de negocio y conversiones DTO-Entity
 └── controller/ - Endpoints REST (solo usan DTOs)
 
-text
-
 ### Relaciones JPA
 
 - **Category** (1) ↔ (N) **Product**: Relación OneToMany/ManyToOne
@@ -44,8 +42,6 @@ text
 Crear la base de datos en MySQL:
 
 CREATE DATABASE catalogo_db;
-
-text
 
 ### application.properties
 
@@ -61,21 +57,15 @@ spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.format_sql=true
 
-text
-
 ## Instalación y Ejecución
 
 ### Compilar el proyecto
 
 mvn clean install
 
-text
-
 ### Ejecutar la aplicación
 
 mvn spring-boot:run
-
-text
 
 La aplicación estará disponible en: `http://localhost:8082`
 
@@ -115,16 +105,12 @@ Content-Type: application/json
 "description": "Productos electrónicos y gadgets"
 }
 
-text
-
 **Response:**
 {
 "id": 1,
 "name": "Electrónica",
 "description": "Productos electrónicos y gadgets"
 }
-
-text
 
 ### Crear un Producto
 
@@ -139,8 +125,6 @@ Content-Type: application/json
 "stock": 10,
 "categoryId": 1
 }
-
-text
 
 **Response:**
 {
@@ -174,39 +158,6 @@ text
 "categoryName": "Electrónica"
 }
 ]
-
-text
-
-## Características Implementadas
-
-### Repository Layer
-
-- Queries nativas SQL con `@Query(nativeQuery = true)`
-- Queries JPQL objetales
-- Métodos derivados de Spring Data JPA
-
-Ejemplo en CategoryRepository:
-// Query nativa
-@Query(value = "SELECT \* FROM categories WHERE name = ?1", nativeQuery = true)
-Optional<Category> findByNameNative(String name);
-
-// Query JPQL
-@Query("SELECT c FROM Category c WHERE c.name = :name")
-Optional<Category> findByNameJPQL(String name);
-
-text
-
-### Service Layer
-
-- Conversiones bidireccionales DTO ↔ Entity
-- Manejo de transacciones con `@Transactional`
-- Validación de entidades relacionadas
-
-### Controller Layer
-
-- Solo utiliza DTOs (nunca expone entidades)
-- Validación con `@Valid`
-- Códigos de estado HTTP apropiados
 
 ## Validaciones
 
