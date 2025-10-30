@@ -137,14 +137,10 @@ Content-Type: application/json
 "categoryName": "Electrónica"
 }
 
-text
-
 ### Obtener Productos por Categoría
 
 **Request:**
 GET http://localhost:8082/api/products/category/1
-
-text
 
 **Response:**
 [
@@ -185,8 +181,6 @@ id BIGINT PRIMARY KEY AUTO_INCREMENT
 name VARCHAR(100) NOT NULL UNIQUE
 description VARCHAR(500)
 
-text
-
 ### Tabla products
 
 id BIGINT PRIMARY KEY AUTO_INCREMENT
@@ -196,8 +190,6 @@ price DECIMAL(10,2) NOT NULL
 stock INT NOT NULL
 category_id BIGINT NOT NULL
 FOREIGN KEY (category_id) REFERENCES categories(id)
-
-text
 
 ## Notas de Desarrollo
 
